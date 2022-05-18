@@ -3,17 +3,16 @@
 # Color files
 PFILE="$HOME/.config/polybar/forest/colors.ini"
 RFILE="$HOME/.config/polybar/forest/scripts/rofi/colors.rasi"
-alpha=45
+alpha=46
 # Get colors
 pywal_get() {
 	wal -i "$1" -q -t
 }
 
 # Change colors
-change_color() {
-	background="$background$alpha"
-	# polybar
-	sed -i -e "s/background = #.*/background = $background/g" $PFILE
+change_color() { 
+	#polybar
+	sed -i -e "s/background = #.*/background = #$alpha$(echo $background | tr -d "#")/g" $PFILE
 	sed -i -e "s/foreground = #.*/foreground = $foreground/g" $PFILE
 	sed -i -e "s/foreground-alt = #.*/foreground-alt = $foreground/g" $PFILE
 	sed -i -e "s/red = #.*/red = $color1/g" $PFILE
