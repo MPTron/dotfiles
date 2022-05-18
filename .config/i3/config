@@ -304,6 +304,11 @@ mode "mouse" {
 }
 bindsym $super+shift+m mode "mouse"
 
+# remove borders 
+for_window [class=".*"] border pixel 0
+default_border pixel 0
+default_floating_border pixel 0
+
 # i3gaps exclusive
 gaps inner 10
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft

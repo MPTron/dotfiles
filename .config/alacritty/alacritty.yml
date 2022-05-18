@@ -1,0 +1,33 @@
+# Font configuration (changes require restart)
+font:
+  # The normal (roman) font face to use.
+  normal:
+    family: MesloLGS NF
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: MesloLGS NF
+    # Style can be specified to pick a specific face.
+    # style: Bold
+
+  # The italic font face
+  italic:
+    family: MesloLGS NF
+    # Style can be specified to pick a specific face.
+    style: Italic
+  size: 14.0
+
+window:
+  opacity: 0.3
+  padding: 
+    x: 10
+    y: 10
+shell:
+  program: /bin/zsh
+  args:
+     - --login
+
+import:
+  - ~/.cache/wal/colors-alacritty.yml
