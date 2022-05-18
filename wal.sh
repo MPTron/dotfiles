@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Dependencies:
+# python, pywal
+# wal-telegram
+# pywal_sublime
+
 
 # Color files
 PFILE="$HOME/.config/polybar/forest/colors.ini"
@@ -29,18 +34,16 @@ change_color() {
 	sed -i -e "s/indigo = #.*/indigo = $color12/g" $PFILE
 	sed -i -e "s/gray = #.*/gray = $color13/g" $PFILE
 	sed -i -e "s/blue-gray = #.*/blue-gray = $color14/g" $PFILE
-
-	echo $SH8
 	# rofi
 	cat > $RFILE <<- EOF
 	/* colors */
 	* {
 	  al:    #00000000;
-	  bg:    ${BG}FF;
-	  bg1:   ${SH8}FF;
-	  bg2:   ${SH7}FF;
-	  bg3:   ${SH6}FF;
-	  fg:    ${FGA}FF;
+	  bg:    ${background}FF;
+	  bg1:   ${color1}FF;
+	  bg2:   ${color2}FF;
+	  bg3:   ${color3}FF;
+	  fg:    ${foreground}FF;
 	}
 	EOF
 	
