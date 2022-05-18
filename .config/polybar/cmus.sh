@@ -14,5 +14,8 @@ song=$(echo -n $(cmus-remote -C status | grep title | cut -c 11-))
 #duration=$(cmus-remote -C status | grep duration | cut -c 10-)
 #minutes2=$(prepend_zero $(($duration / 60)))
 #seconds2=$(prepend_zero $(($duration % 60)))
-
-echo -n "$song"
+if [[ "$song" ]]; then
+  echo -n "$song"
+else
+  echo -n "Offline" 
+fi
