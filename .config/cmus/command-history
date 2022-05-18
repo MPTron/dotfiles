@@ -1,0 +1,31 @@
+quit
+set mixer.alsa.channel=Master
+set mixer.alsa.device=default
+set dsp.alsa.device=default
+set output_plugin=alsa
+set status_display_program=/usr/local/bin/cmus-notify
+exit
+set et status_display_program=/usr/local/bin/cmus-notify
+save
+colorscheme dracula
+colorscheme jellybeans
+colorscheme night
+colorscheme zenburn
+colorscheme solarized
+colorscheme solarized-dark
+colorscheme green
+colorscheme cyan
+colorscheme green-mono-88
+colorscheme amazon
+win-remove
+delete
+colorscheme edited-default
+colorscheme default
+quit 
+colorscheme kum
+colorscheme spotify
+search
+pl-create heavy metal
+pl-create
+cr-playlist
+pl-create chill
