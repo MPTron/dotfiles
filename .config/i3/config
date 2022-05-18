@@ -1,6 +1,5 @@
 # customization variables
 set $wallpaper ~/Pictures/Wallpapers/wp5636908.jpg
-set $bgcolor #302D415e
 # workspace variables 
 set $ws1 "1"
 set $ws2 "2"
@@ -29,13 +28,6 @@ bindsym $super+shift+a exec ~/.config/i3/microphone-toggle.sh
 
 # dunst 
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
-
-# Restore GNOME's settings
-exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
-
-# Fix a bug in gnome-settings-daemon: http://feeding.cloud.geek.nz/posts/creating-a-modern-tiling-desktop-environment-using-i3/
-exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
-
 
 # dual monitor setup
 set $mon1 DP1
@@ -75,7 +67,7 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
 
-# music control
+# music control (mpc)
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioPlay exec mpc toggle
@@ -209,51 +201,13 @@ mode "resize" {
         bindsym $super+r mode "default"
 }
 bindsym $super+r mode "resize"
-# panel 
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
-
-#bar { 
-#position top
-#        colors {
-#        background $bgcolor
-#        statusline #302D41
-#        separator #6E6C7E	
-#        # colour of border, background, and text
-#        focused_workspace       $bgcolor #F5C2E7 #302D41
-#        active_workspace        $bgcolor $bgcolor #D9E0EE
-#        inactive_workspace      $bgcolor $bgcolor #D9E0EE
-#        urgent_workspacei       $bgcolor #ebcb8b #302D41
-#    }
-#        status_command i3status
-#        i3bar_command i3bar --transparency
-#        
-#}
-default_border pixel 0
-default_floating_border pixel 0
-# window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 0
-assign [class=URxvt] 1
-assign [class=Firefox|Transmission-gtk] 2
-assign [class=Thunar|File-roller] 3
-assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
-assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
-assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
-for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
-for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
-
-# colour of border, background, text, indicator, and child_border
-client.focused              #F28FAD #302D41 #6E6C7E #F28FAD #6E6C7E
-client.focused_inactive     #302D41 #302D41 #6E6C7E #302D41 #302D41
-client.unfocused            #302D41 #302D41 #6E6C7E #302D41 #302D41
-client.urgent               #302D41 #302D41 #6E6C7E #302D41 #302D41
-client.placeholder          #302D41 #302D41 #6E6C7E #302D41 #302D41
-client.background           #302D41
+# panel (depends on polybar and polybar's launch.sh)
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # language change
 exec ~/.config/i3/keyboard-layout.sh
 
-# disable mouse accleration
+# disable mouse accleration (for device id of 10 and 19)
 exec xinput --set-prop 19 'libinput Accel Profile Enabled' 0, 1
 exec xinput --set-prop 10 'libinput Accel Profile Enabled' 0, 1
 
@@ -349,6 +303,8 @@ mode "mouse" {
 
 }
 bindsym $super+shift+m mode "mouse"
+
+# i3gaps exclusive
 gaps inner 10
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)

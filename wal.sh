@@ -6,8 +6,8 @@
 
 
 # Color files
-PFILE="$HOME/.config/polybar/forest/colors.ini"
-RFILE="$HOME/.config/polybar/forest/scripts/rofi/colors.rasi"
+PFILE="$HOME/.config/polybar/colors.ini"
+RFILE="$HOME/.config/polybar/scripts/rofi/colors.rasi"
 alpha=46
 # Get colors
 pywal_get() {
