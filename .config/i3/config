@@ -26,6 +26,9 @@ set $alt Mod1
 # toggle microphone mute
 bindsym $super+shift+a exec ~/.config/i3/microphone-toggle.sh
 
+# start pulseaudio 
+exec pulseaudio --start
+
 # dunst 
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 

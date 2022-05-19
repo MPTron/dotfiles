@@ -34,18 +34,6 @@ change_color() {
 	sed -i -e "s/indigo = #.*/indigo = $color12/g" $PFILE
 	sed -i -e "s/gray = #.*/gray = $color13/g" $PFILE
 	sed -i -e "s/blue-gray = #.*/blue-gray = $color14/g" $PFILE
-	# rofi
-	cat > $RFILE <<- EOF
-	/* colors */
-	* {
-	  al:    #00000000;
-	  bg:    ${background}FF;
-	  bg1:   ${color1}FF;
-	  bg2:   ${color2}FF;
-	  bg3:   ${color3}FF;
-	  fg:    ${foreground}FF;
-	}
-	EOF
 	
 	polybar-msg cmd restart
 }
@@ -56,6 +44,7 @@ if [[ -f "/usr/bin/wal" ]]; then
 		pywal_get "$1"
 		python .local/bin/pywal_sublime.py
 		wal-telegram -g
+		mv $HOME/.cache/wal/colors-rofi-dark.rasi $HOME/.config/rofi/config.rasi
 		# Source the pywal color file
 		. "$HOME/.cache/wal/colors.sh"
 
