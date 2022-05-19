@@ -3,7 +3,7 @@
 # python, pywal
 # wal-telegram
 # pywal_sublime
-
+# pywal-discord (and better discord)
 
 # Color files
 PFILE="$HOME/.config/polybar/colors.ini"
@@ -44,6 +44,7 @@ if [[ -f "/usr/bin/wal" ]]; then
 		pywal_get "$1"
 		python .local/bin/pywal_sublime.py
 		wal-telegram -g
+		pywal-discord
 		mv $HOME/.cache/wal/colors-rofi-dark.rasi $HOME/.config/rofi/config.rasi
 		# Source the pywal color file
 		. "$HOME/.cache/wal/colors.sh"
