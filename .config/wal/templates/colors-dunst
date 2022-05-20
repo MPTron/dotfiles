@@ -1,0 +1,51 @@
+[global]
+max_icon_size = 80
+monitor = 0
+format = "<b>%s</b>\n%b"
+follow = mouse
+offset=10x54
+indicate_hidden = yes
+shrink = no
+separator_height = 0
+padding = 10
+horizontal_padding = 10
+frame_width = 0
+sort = no
+idle_threshold = 120
+font = Fira Code 13
+line_height = 4
+markup = full
+alignment = left
+show_age_threshold = 60
+word_wrap = yes
+ignore_newline = no
+stack_duplicates = false
+hide_duplicate_count = yes
+show_indicators = no
+icon_position = left
+sticky_history = yes
+history_length = 20
+browser = /usr/bin/firefox -new-tab
+always_run_script = true
+title = Dunst
+class = Dunst
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+grave
+context = ctrl+shift+period
+
+[urgency_low]
+background = "{background}"
+foreground = "{foreground}"
+timeout = 2
+
+[urgency_normal]
+background = "{background}"
+foreground = "{foreground}"
+timeout = 4
+
+[urgency_critical]
+background = "{background}"
+foreground = "{color1}"
+frame_color = "{color1}"
+timeout = 0

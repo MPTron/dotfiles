@@ -7,7 +7,7 @@
 
 # Color files
 PFILE="$HOME/.config/polybar/colors.ini"
-RFILE="$HOME/.config/polybar/scripts/rofi/colors.rasi"
+DFILE="$HOME/.cache/wal/colors-dunst"
 alpha=46
 # Get colors
 pywal_get() {
@@ -34,7 +34,13 @@ change_color() {
 	sed -i -e "s/indigo = #.*/indigo = $color12/g" $PFILE
 	sed -i -e "s/gray = #.*/gray = $color13/g" $PFILE
 	sed -i -e "s/blue-gray = #.*/blue-gray = $color14/g" $PFILE
-	
+
+	# change dunsts background trancparency
+	sed -i -e 's/background = "#.*"/background = "'"#$(echo $background | tr -d "#")$alpha"'"/g' $DFILE
+
+	# restart dunst
+	killall dunst
+	dunst -config $DFILE &
 	polybar-msg cmd restart
 }
 
@@ -52,7 +58,7 @@ if [[ -f "/usr/bin/wal" ]]; then
 		change_color
 	else
 		echo -e "[!] Please enter the path to wallpaper. \n"
-		echo "Usage : ./pywal.sh path/to/image"
+		echo "Usage : ./wal.sh path/to/image"
 	fi
 else
 	echo "[!] 'pywal' is not installed."
