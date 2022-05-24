@@ -1,5 +1,5 @@
 # customization variables
-set $wallpaper ~/Pictures/Wallpapers/99810.jpg
+set $wallpaper ~/Pictures/Wallpapers/8ee9d4aaea37c0e02149b6a2d70b52e4.png
 # workspace variables 
 set $ws1 "1"
 set $ws2 "2"
@@ -30,7 +30,7 @@ bindsym $super+shift+a exec ~/.config/i3/microphone-toggle.sh
 exec pulseaudio --start
 
 # dunst 
-exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec_always --no-startup-id dunst -config ~/.cache/wal/colors-dunst
 
 # dual monitor setup
 set $mon1 DP1
