@@ -1,18 +1,14 @@
 #!/usr/bin/env bash
 # Dependencies:
-# python, pywal
+# python, wpgtk
 # wal-telegram
 # pywal_sublime
-# pywal-discord (and better discord)
+# pywal-discord (and better discord)k
 
 # Color files
 PFILE="$HOME/.config/polybar/colors.ini"
 DFILE="$HOME/.cache/wal/colors-dunst"
 alpha=46
-# Get colors
-pywal_get() {
-	wal -i "$1" -q -t
-}
 
 # Change colors
 change_color() { 
@@ -48,7 +44,6 @@ change_color() {
 if [[ -f "/usr/bin/wal" ]]; then
 	if [[ "$1" ]]; then
 		wpg -s $1
-		pywal_get "$1"
 		. "$HOME/.config/polybar/launch.sh"
 		python .local/bin/pywal_sublime.py
 		wal-telegram -g
