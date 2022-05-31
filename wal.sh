@@ -3,7 +3,7 @@
 # python, wpgtk
 # wal-telegram
 # pywal_sublime
-# pywal-discord (and better discord)k
+# pywal-discord (and better discord)
 
 # Color files
 PFILE="$HOME/.config/polybar/colors.ini"
