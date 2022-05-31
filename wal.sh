@@ -48,9 +48,8 @@ change_color() {
 if [[ -f "/usr/bin/wal" ]]; then
 	if [[ "$1" ]]; then
 		wpg -s $1
-		echo $1
 		pywal_get "$1"
-		$HOME/.config/polybar/launch.sh
+		. "$HOME/.config/polybar/launch.sh"
 		python .local/bin/pywal_sublime.py
 		wal-telegram -g
 		pywal-discord
