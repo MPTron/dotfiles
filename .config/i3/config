@@ -1,5 +1,5 @@
 # customization variables
-set $wallpaper ~/Pictures/Wallpapers/8ee9d4aaea37c0e02149b6a2d70b52e4.png
+set $wallpaper ~/Pictures/Wallpapers/cobain.jpg
 # workspace variables 
 set $ws1 "1"
 set $ws2 "2"
@@ -70,11 +70,11 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
 
-# music control (mpc)
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
+# music control (cmus)
+bindsym XF86AudioNext exec cmus-remote --next
+bindsym XF86AudioPrev exec cmus-remote --prev
+bindsym XF86AudioPlay exec cmus-remote --pause
+bindsym XF86AudioStop exec cmus-remote --stop
 
 # kill focused window
 bindsym $super+c kill
