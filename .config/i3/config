@@ -1,5 +1,5 @@
 # customization variables
-set $wallpaper ~/Pictures/Wallpapers/cobain.jpg
+set $wallpaper ~/Pictures/Wallpapers/wp5636908.jpg
 # workspace variables 
 set $ws1 "1"
 set $ws2 "2"
@@ -28,6 +28,9 @@ bindsym $super+shift+a exec ~/.config/i3/microphone-toggle.sh
 
 # start pulseaudio 
 exec pulseaudio --start
+
+# start obs vcam 
+exec modprobe v4l2loopback devices=1 video_nr=10 card_label="OBS Cam" exclusive_caps=1
 
 # dunst 
 exec_always --no-startup-id dunst -config ~/.cache/wal/colors-dunst
