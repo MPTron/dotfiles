@@ -12,6 +12,10 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+exec xrandr --newmode "1680x1050R"  119.00  1680 1728 1760 1840  1050 1053 1059 1080 +hsync -vsync
+exec xrandr --addmode DP1 1680x1050R
+exec xrandr --output DP1 --mode 1680x1050R
+
 # font size variables
 set $font-family MesloLGS NF
 set $font-size 14
@@ -113,6 +117,16 @@ bindsym $super+space floating toggle
 # change focus between tiling / floating windows
 bindsym $super+Shift+space focus mode_toggle
 
+# assign workspaces
+for_window [class = "Alacritty"] move container to workspace $ws1 focus;
+for_window [class="Chromium|Firefox"] move container to workspace $ws2 focus;
+for_window [title="^cmus*"] move container to workspace $ws3 focus;
+for_window [class="TelegramDesktop|Signal"] move container to workspace $ws4 focus;
+for_window [class="Code|Gedit"] move container to workspace $ws5 focus;
+for_window [class="mpv"] move container to workspace $ws6 focus;
+for_window [title="^mpv*"] move container to workspace $ws6 focus;
+for_window [title="wget*|sudo pacman*|yay*"] move container to workspace $ws7 focus;
+for_window [class="Nemo"] move container to workspace $ws8 focus;
 # switch to workspace
 bindsym $alt+Control+Right workspace next
 bindsym $alt+Control+Left workspace prev
