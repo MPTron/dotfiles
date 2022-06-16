@@ -134,6 +134,11 @@ for_window [title="^mpv*"] move container to workspace $ws6 focus;
 for_window [title="wget*|sudo pacman*|yay*|curl*"] move container to workspace $ws7 focus;
 for_window [class="Nemo"] move container to workspace $ws8 focus;
 for_window [title="nemo*"] move container to workspace $ws8 focus;
+
+# move workspace to another monitor
+bindsym $super+ctrl+shift+Left move workspace to output left
+bindsym $super+ctrl+shift+Right move workspace to output right
+
 # switch to workspace
 bindsym $alt+Control+Right workspace next
 bindsym $alt+Control+Left workspace prev
