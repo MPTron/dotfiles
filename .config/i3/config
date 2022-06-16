@@ -128,7 +128,7 @@ for_window [title="^cmus*"] move container to workspace $ws3 focus;
 for_window [class="TelegramDesktop|Signal"] move container to workspace $ws4 focus;
 for_window [title="WhatsApp*" class="Chromium|Firefox"] move container to workspace $ws4 focus;
 for_window [title="Telegram Web" class="Chromium|Firefox"] move container to workspace $ws4 focus;
-for_window [class="Code|Gedit"] move container to workspace $ws5 focus;
+for_window [class="Code|Gedit|Subl"] move container to workspace $ws5 focus;
 for_window [class="mpv"] move container to workspace $ws6 focus;
 for_window [title="^mpv*"] move container to workspace $ws6 focus;
 for_window [title="wget*|sudo pacman*|yay*|curl*"] move container to workspace $ws7 focus;
