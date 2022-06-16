@@ -122,11 +122,13 @@ for_window [class = "Alacritty"] move container to workspace $ws1 focus;
 for_window [class="Chromium|Firefox"] move container to workspace $ws2 focus;
 for_window [title="^cmus*"] move container to workspace $ws3 focus;
 for_window [class="TelegramDesktop|Signal"] move container to workspace $ws4 focus;
+for_window [title="WhatsApp*" class="Chromium|Firefox"] move container to workspace $ws4 focus;
 for_window [class="Code|Gedit"] move container to workspace $ws5 focus;
 for_window [class="mpv"] move container to workspace $ws6 focus;
 for_window [title="^mpv*"] move container to workspace $ws6 focus;
-for_window [title="wget*|sudo pacman*|yay*"] move container to workspace $ws7 focus;
+for_window [title="wget*|sudo pacman*|yay*|curl*"] move container to workspace $ws7 focus;
 for_window [class="Nemo"] move container to workspace $ws8 focus;
+for_window [title="nemo*"] move container to workspace $ws8 focus;
 # switch to workspace
 bindsym $alt+Control+Right workspace next
 bindsym $alt+Control+Left workspace prev
