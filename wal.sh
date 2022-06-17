@@ -8,6 +8,7 @@
 # Color files
 PFILE="$HOME/.config/polybar/colors.ini"
 DFILE="$HOME/.cache/wal/colors-dunst"
+I3FILE="$HOME/.config/i3/config"
 alpha=46
 
 # Change colors
@@ -33,7 +34,7 @@ change_color() {
 
 	# change dunsts background trancparency
 	sed -i -e 's/background = "#.*"/background = "'"#$(echo $background | tr -d "#")$alpha"'"/g' $DFILE
-
+	
 	# restart dunst
 	killall dunst
 	dunst -config $DFILE &
@@ -49,9 +50,13 @@ if [[ -f "/usr/bin/wal" ]]; then
 		wal-telegram -g
 		pywal-discord
 		mv $HOME/.cache/wal/colors-rofi-dark.rasi $HOME/.config/rofi/config.rasi
+		echo 'configuration {
+	modi: "window,run,drun,calc,filebrowser";
+}' >> $HOME/.config/rofi/config.rasi
+
 		# Source the pywal color file
 		. "$HOME/.cache/wal/colors.sh"
-
+		cp $HOME/.cache/wal/colors ~/Documents/front-end/nitab-pro/build/
 		change_color
 	else
 		echo -e "[!] Please enter the path to wallpaper. \n"
