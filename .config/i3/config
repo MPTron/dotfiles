@@ -11,6 +11,10 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
 
 # fix second monitor resulation issue
 exec xrandr --newmode "1680x1050R"  119.00  1680 1728 1760 1840  1050 1053 1059 1080 +hsync -vsync
@@ -147,6 +151,8 @@ for_window [title="wget*|sudo pacman -S*|yay -S*|curl*|yay -U*|sudo pacman -U*" 
 for_window [class="Nemo"] move container to workspace $ws8 focus;
 for_window [title="^ranger*" class="Alacritty"]move container to workspace $ws8 focus;
 for_window [title="nemo*" class="Alacritty"] move container to workspace $ws8 focus;
+for_window [class="VirtualBox Manager"] move container to workspace $ws9 focus;
+for_window [class="VirtualBox Machine"]move container to workspace $ws10 focus;
 
 # move workspace to another monitor
 bindsym $super+ctrl+shift+Left move workspace to output left
@@ -166,6 +172,10 @@ bindsym $super+7 workspace $ws7
 bindsym $super+8 workspace $ws8
 bindsym $super+9 workspace $ws9
 bindsym $super+0 workspace $ws10
+bindsym $super+F1 workspace $ws11
+bindsym $super+F2 workspace $ws12
+bindsym $super+F3 workspace $ws13
+bindsym $super+F4 workspace $ws14
 
 # move focused container to workspace
 bindsym $super+Shift+1 move container to workspace $ws1
@@ -178,6 +188,10 @@ bindsym $super+Shift+7 move container to workspace $ws7
 bindsym $super+Shift+8 move container to workspace $ws8
 bindsym $super+Shift+9 move container to workspace $ws9
 bindsym $super+Shift+10 move container to workspace $ws10
+bindsym $super+Shift+F1 move container to workspace $ws11
+bindsym $super+Shift+F2 move container to workspace $ws12
+bindsym $super+Shift+F3 move container to workspace $ws13
+bindsym $super+Shift+F4 move container to workspace $ws14
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+Shift+r restart
