@@ -44,7 +44,7 @@ set $alt Mod1
 bindsym $super+e exec alacritty --title ranger --command ranger
 
 # toggle microphone mute
-bindsym $super+shift+a exec ~/.config/i3/microphone-toggle.sh
+bindsym $super+Shift+a exec ~/.config/i3/microphone-toggle.sh
 
 # start clipster and its deamon (for roficlip)
 exec clipster -d
@@ -89,7 +89,7 @@ bindsym $alt+Print exec --no-startup-id maim -o --window $(xdotool getactivewind
 bindsym Print exec --no-startup-id maim -o --select | xclip -selection clipboard -t image/png
 
 # common apps keybinds
-bindsym $super+shift+l exec $lock
+bindsym $super+Shift+l exec $lock
 bindsym $super+Shift+c exec code
 
 #change volume
@@ -155,8 +155,8 @@ for_window [class="VirtualBox Manager"] move container to workspace $ws9 focus;
 for_window [class="VirtualBox Machine"]move container to workspace $ws10 focus;
 
 # move workspace to another monitor
-bindsym $super+ctrl+shift+Left move workspace to output left
-bindsym $super+ctrl+shift+Right move workspace to output right
+bindsym $super+ctrl+Left move workspace to output left
+bindsym $super+ctrl+Right move workspace to output right
 
 # switch to workspace
 bindsym $alt+Control+Right workspace next
