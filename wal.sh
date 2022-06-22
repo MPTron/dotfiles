@@ -8,7 +8,6 @@
 # Color files
 PFILE="$HOME/.config/polybar/colors.ini"
 DFILE="$HOME/.cache/wal/colors-dunst"
-I3FILE="$HOME/.config/i3/config"
 alpha=46
 
 # Change colors
@@ -34,7 +33,6 @@ change_color() {
 
 	# change dunsts background trancparency
 	sed -i -e 's/background = "#.*"/background = "'"#$(echo $background | tr -d "#")$alpha"'"/g' $DFILE
-	
 	# restart dunst
 	killall dunst
 	dunst -config $DFILE &
@@ -49,10 +47,14 @@ if [[ -f "/usr/bin/wal" ]]; then
 		python .local/bin/pywal_sublime.py
 		wal-telegram -g
 		pywal-discord
+		#sudo touch /etc/vconsole.conf
+		#sudo sed 's/#//g' $HOME/.cache/wal/vconsole.conf | sudo tee -a /etc/vconsole.conf
 		mv $HOME/.cache/wal/colors-rofi-dark.rasi $HOME/.config/rofi/config.rasi
 		echo 'configuration {
 	modi: "window,run,drun,calc,filebrowser";
 }' >> $HOME/.config/rofi/config.rasi
+		# change i3s wallpaper config
+		sed -i -e 's@set $wallpaper .*@set $wallpaper '"$1"'@g' $HOME/.config/i3/config		
 
 		# Source the pywal color file
 		. "$HOME/.cache/wal/colors.sh"
