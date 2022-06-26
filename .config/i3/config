@@ -1,5 +1,5 @@
 # customization variables
-set $wallpaper ~/Pictures/Wallpapers/wp5636908.jpg
+set $wallpaper /home/nima/Pictures/Wallpapers/wallpapersden.com_anime-illustration-minimal-art_2560x1440.jpg
 # workspace variables 
 set $ws1 "1"
 set $ws2 "2"
@@ -89,8 +89,11 @@ bindsym $alt+Print exec --no-startup-id maim -o --window $(xdotool getactivewind
 bindsym Print exec --no-startup-id maim -o --select | xclip -selection clipboard -t image/png
 
 # common apps keybinds
-bindsym $super+Shift+l exec $lock
+# bindsym $super+Shift+l exec $lock
 bindsym $super+Shift+c exec code
+# fix ssh prompt prorblem
+exec eval `ssh-agent`
+exec ssh-add
 
 #change volume
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
@@ -108,22 +111,33 @@ bindsym $super+c kill
 bindsym $alt+F4 kill
 
 # change focus
-bindsym $super+Left focus left
-bindsym $super+Down focus down
-bindsym $super+Up focus up
-bindsym $super+Right focus right
+# bindsym $super+Left focus left
+# bindsym $super+Down focus down
+# bindsym $super+Up focus up
+# bindsym $super+Right focus right
+# change focus (vim)
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
+
 
 # move focused window
-bindsym $super+Shift+Left move left
-bindsym $super+Shift+Down move down
-bindsym $super+Shift+Up move up
-bindsym $super+Shift+Right move right
+# bindsym $super+Shift+Left move left
+# bindsym $super+Shift+Down move down
+# bindsym $super+Shift+Up move up
+# bindsym $super+Shift+Right move right
+# move focused window (vim)
+bindsym $super+Shift+h move left
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+l move right
 
 # split in horizontal orientation
-bindsym $super+h split h
+bindsym $super+Shift+s split h
 
 # split in vertical orientation
-bindsym $super+v split v
+bindsym $super+Shift+v split v
 
 # denter fullscreen mode for the focused container
 bindsym $super+f fullscreen toggle
@@ -138,13 +152,13 @@ bindsym $super+space floating toggle
 bindsym $super+Shift+space focus mode_toggle
 
 # assign workspaces
-for_window [class = "Alacritty"] move container to workspace $ws1 focus;
+#for_window [class = "Alacritty"] move container to workspace $ws1 focus;
 for_window [class="Chromium|Firefox"] move container to workspace $ws2 focus;
 for_window [title="^cmus*" class="Alacritty"] move container to workspace $ws3 focus;
 for_window [class="discord|TelegramDesktop|Signal"] move container to workspace $ws4 focus;
 for_window [title="WhatsApp*|Telegram Web" class="Chromium|Firefox"] move container to workspace $ws4 focus;
 for_window [class="Code|Gedit|Subl"] move container to workspace $ws5 focus;
-for_window [title="nano*|sudo nano*" class="Alacritty"] move container to workspace $ws5 focus;
+for_window [title="^nano*|^sudo nano*|^nvim*|^vim*|^sudo nvim*|^sudo vim*" class="Alacritty"] move container to workspace $ws5 focus;
 for_window [class="mpv"] move container to workspace $ws6 focus;
 for_window [title="^mpv*"] move container to workspace $ws6 focus;
 for_window [title="wget*|sudo pacman -S*|yay -S*|curl*|yay -U*|sudo pacman -U*" class="Alacritty"] move container to workspace $ws7 focus;
@@ -155,12 +169,12 @@ for_window [class="VirtualBox Manager"] move container to workspace $ws9 focus;
 for_window [class="VirtualBox Machine"]move container to workspace $ws10 focus;
 
 # move workspace to another monitor
-bindsym $super+ctrl+Left move workspace to output left
-bindsym $super+ctrl+Right move workspace to output right
+bindsym $super+ctrl+h move workspace to output left
+bindsym $super+ctrl+l move workspace to output right
 
 # switch to workspace
-bindsym $alt+Control+Right workspace next
-bindsym $alt+Control+Left workspace prev
+bindsym $alt+Control+l workspace next
+bindsym $alt+Control+h workspace prev
 
 bindsym $super+1 workspace $ws1
 bindsym $super+2 workspace $ws2
@@ -218,21 +232,33 @@ bindsym $alt+q mode "default"
 bindsym $super+m mode "move"
 mode "move" {
 # fast move
-	  bindsym shift+Left move left 10 px
-        bindsym shift+Down move down 10 px
-        bindsym shift+Up move up 10 px
-        bindsym shift+Right move right 10 px
+	# bindsym shift+Left move left 10 px
+        # bindsym shift+Down move down 10 px
+        # bindsym shift+Up move up 10 px
+        # bindsym shift+Right move right 10 px
+	bindsym shift+h move left 10 px
+        bindsym shift+j move down 10 px
+        bindsym shift+k move up 10 px
+        bindsym shift+h move right 10 px
 # normal move
-	  bindsym Left move left 5 px
-        bindsym Down move down 5 px
-        bindsym Up move up 5 px
-        bindsym Right move right 5 px
+	# bindsym Left move left 5 px
+        # bindsym Down move down 5 px
+        # bindsym Up move up 5 px
+        # bindsym Right move right 5 px
+	bindsym h move left 5 px
+        bindsym j move down 5 px
+        bindsym k move up 5 px
+        bindsym l move right 5 px
 # slow move
-	  bindsym ctrl+Left move left 1 px
-        bindsym ctrl+Down move down 1 px
-        bindsym ctrl+Up move up 1 px
-        bindsym ctrl+Right move right 1 px
-       # exit resize
+	# bindsym ctrl+Left move left 1 px
+	# bindsym ctrl+Left move left 1 px
+        # bindsym ctrl+Down move down 1 px
+        # bindsym ctrl+Up move up 1 px
+        bindsym ctrl+h move left 1 px
+        bindsym ctrl+j move down 1 px
+        bindsym ctrl+k move up 1 px
+        bindsym ctrl+l move right 1 px
+       # exit move mode
 	bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $super+m mode "default"
@@ -240,20 +266,20 @@ mode "move" {
 # resize window (you can also use the mouse for that)
 mode "resize" {
 	# fast resize
-	  bindsym shift+Left resize shrink width 10 px or 10 ppt
-        bindsym shift+Down resize grow height 10 px or 10 ppt
-        bindsym shift+Up resize shrink height 10 px or 10 ppt
-        bindsym shift+Right resize grow width 10 px or 10 ppt
+        bindsym shift+h resize shrink width 10 px or 10 ppt
+        bindsym shift+j resize grow height 10 px or 10 ppt
+        bindsym shift+k resize shrink height 10 px or 10 ppt
+        bindsym shift+l resize grow width 10 px or 10 ppt
         # normal resize
-	bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+	bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 	# slow resize 
-	bindsym ctrl+Left resize shrink width 1 px or 1 ppt
-        bindsym ctrl+Down resize grow height 1 px or 1 ppt
-        bindsym ctrl+Up resize shrink height 1 px or 1 ppt
-        bindsym ctrl+Right resize grow width 1 px or 1 ppt
+	bindsym ctrl+h resize shrink width 1 px or 1 ppt
+        bindsym ctrl+j resize grow height 1 px or 1 ppt
+        bindsym ctrl+k resize shrink height 1 px or 1 ppt
+        bindsym ctrl+l resize grow width 1 px or 1 ppt
         # exit resize
 	bindsym Return mode "default"
         bindsym Escape mode "default"
